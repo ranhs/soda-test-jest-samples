@@ -1,6 +1,5 @@
 import { expect, describe, it, SinonSpy, spy, TR, PTR, Done } from 'soda-test'
 import { DerivedClass } from './class'
-import { fail } from 'assert'
 
 class A {
     a = 1
@@ -124,7 +123,6 @@ class ExpectTest {
 
     @it('should expect and done')
     expectWithDone(done: Done): TR {
-        let timeout: NodeJS.Timer
         setTimeout( () => {
             try {
                 expect(true).to.be.true
@@ -132,7 +130,7 @@ class ExpectTest {
                 clearInterval(timeout)
                 timeout = null as never
                 //done() // should not get here
-                fail('should not get here')
+                expect.fail('should not get here')
             } catch (e) {
                 if ( timeout !== null ) {
                     clearInterval(timeout)
@@ -142,7 +140,7 @@ class ExpectTest {
                 done()
             }
         },20)
-        timeout = setTimeout( () => {
+        let timeout = setTimeout( () => {
             expect(true).to.be.false
         }, 1000)
     }
