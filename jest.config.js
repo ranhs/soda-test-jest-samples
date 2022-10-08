@@ -4,7 +4,7 @@ const { compilerOptions } = require('./tsconfig')
 module.exports = {
     preset: 'jest-preset-angular',
     roots: ['./src'],
-    testMatch: ['**/+(*.)+(spec).+(ts)'],
+    testMatch: ['demo.spec.ts', '**/+(*.)+(spec).+(ts)'],
     setupFilesAfterEnv: ['./src/test.ts'],
     collectCoverage: true,
     verbose: true,
