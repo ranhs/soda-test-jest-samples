@@ -16,7 +16,7 @@ class RewireReloadTest {
     }
 
 
-    // NOT supporting reload for now
+    // NOT supporting reload when using jest
     /*
 @context('1')
 
